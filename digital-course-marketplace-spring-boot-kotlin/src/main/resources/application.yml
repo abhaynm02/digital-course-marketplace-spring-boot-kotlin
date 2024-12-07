@@ -1,0 +1,13 @@
+spring:
+  application:
+  name: digital_course_marketplace_spring_boot_kotlin
+  datasource:
+    url: "jdbc:h2:file:~/digital_course_database;DB_CLOSE_ON_EXIT=FALSE"
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
