@@ -10,6 +10,7 @@ fun handleResponse(response: ApiResponse<*>): ResponseEntity<Any> {
             is ApiResponse.Error.ValidationError->ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response)
             is ApiResponse.Error.UnexpectedError ->ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response)
             is ApiResponse.Error.InvalidCredentials ->ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response)
+            is ApiResponse.Error.CourseTitleExists ->ResponseEntity.status(HttpStatus.CONFLICT).body(response)
         }
     }
 

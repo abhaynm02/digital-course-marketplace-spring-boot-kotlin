@@ -1,6 +1,7 @@
 package com.abhaynm.digital_course_marketplace_spring_boot_kotlin.model.entity
 
 import com.fasterxml.jackson.annotation.JsonIgnore
+import com.fasterxml.jackson.annotation.JsonManagedReference
 import jakarta.persistence.*
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
@@ -21,6 +22,9 @@ data class UserEntity(
     val passWord:String,
     @Enumerated(EnumType.STRING)
     val role: Role
+//    @OneToMany(mappedBy = "createdBy",cascade = [CascadeType.ALL] )
+//    @JsonManagedReference
+//    val courses:List<Course> = emptyList()
 ) : UserDetails{
     @JsonIgnore
     override fun getAuthorities(): MutableCollection<out GrantedAuthority> =  mutableListOf(SimpleGrantedAuthority(this.role.name))

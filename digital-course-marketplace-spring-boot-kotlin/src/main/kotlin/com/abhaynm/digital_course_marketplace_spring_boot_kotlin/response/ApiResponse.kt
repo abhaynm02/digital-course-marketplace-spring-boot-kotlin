@@ -8,5 +8,6 @@ sealed class ApiResponse<T> {
         data class EmailAlreadyExists<T>(val msg:String):Error<T>()
         data class UnexpectedError<T>(val msg: String):Error<T>()
         data class InvalidCredentials<T>(val msg: String):Error<T>()
+        data class CourseTitleExists<T>(val msg: String):Error<T>()
     }
 }
