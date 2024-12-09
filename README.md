@@ -56,9 +56,6 @@ spring:
     hibernate:
       ddl-auto: update
 
-# JWT Configuration
-jwt.secret=your-secret-key
-jwt.expiration=86400000
 ```
 
 ## Running the Application
