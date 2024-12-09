@@ -42,9 +42,9 @@ class SecurityConfig(
             //securing the api end point based on roll for authorization
             .authorizeHttpRequests {
                 it.requestMatchers(PathRequest.toH2Console()).permitAll()
-                it.requestMatchers("/api/auth/**","/api/home/**").permitAll()
-                it.requestMatchers("/api/admin").hasAuthority(Role.ADMIN.name)
-                it.requestMatchers("/api/user/**").hasAuthority(Role.CUSTOMER.name)
+                it.requestMatchers("/api/auth/**","/api/home/**","/api/stats").permitAll()
+                it.requestMatchers("/api/admin/**","/api/stats").hasAuthority(Role.ADMIN.name)
+                it.requestMatchers("/api/customer/**","/api/stats").hasAuthority(Role.CUSTOMER.name)
                 it.requestMatchers("/api/creator/**").hasAuthority(Role.CREATOR.name)
                 it.anyRequest().authenticated()
             }

@@ -45,7 +45,7 @@ class AuthServiceImp(
                     username = savedUser.email
                 )
                 // returning api success response
-                ApiResponse.Success(
+                ApiResponse.Created(
                     data = response,
                     message = "Account created successfully"
                 )
@@ -67,7 +67,7 @@ class AuthServiceImp(
                 name = user.name,
                 token=token
             )
-            ApiResponse.Success("success",response)
+            ApiResponse.Created("success",response)
             //if the username or password is invalid this exception will throw
         }catch (e:AuthenticationException){
 

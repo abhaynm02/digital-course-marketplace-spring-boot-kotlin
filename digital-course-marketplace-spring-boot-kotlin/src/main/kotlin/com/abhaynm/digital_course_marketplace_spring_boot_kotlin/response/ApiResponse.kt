@@ -2,6 +2,7 @@ package com.abhaynm.digital_course_marketplace_spring_boot_kotlin.response
 
 sealed class ApiResponse<T> {
     data class Success<T>(val message:String,val data :T):ApiResponse<T>()
+    data class Created<T>(val  message: String,val data :T):ApiResponse<T>()
 
     sealed class Error<T>:ApiResponse<T>(){
         data class ValidationError<T>(val errors:Map<String,String>):Error<T>()
@@ -9,5 +10,10 @@ sealed class ApiResponse<T> {
         data class UnexpectedError<T>(val msg: String):Error<T>()
         data class InvalidCredentials<T>(val msg: String):Error<T>()
         data class CourseTitleExists<T>(val msg: String):Error<T>()
+        data class CourseIdInvalid<T>(val msg: String):Error<T>()
+        data class UserNotFound<T>(val msg: String):Error<T>()
+        data class CourseAlreadyPurchased<T>(val msg: String):Error<T>()
+        data class DateInvalidError<T>(val meg:String):Error<T>()
+
     }
 }

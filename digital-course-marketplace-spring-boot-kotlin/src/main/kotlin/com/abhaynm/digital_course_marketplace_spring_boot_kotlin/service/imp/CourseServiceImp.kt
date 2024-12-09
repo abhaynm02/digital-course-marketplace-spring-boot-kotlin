@@ -26,7 +26,7 @@ class CourseServiceImp(
                   ApiResponse.Error.CourseTitleExists("The given course title is already used please try another one")
               }else{
                  val course=   courseRepository.save(request.toCourse())
-                  ApiResponse.Success("course created successfully",course.toCourseDto())
+                  ApiResponse.Created("course created successfully",course.toCourseDto())
               }
           }catch (e:Exception){
               ApiResponse.Error.UnexpectedError("An unexpected error occurred during registration")
@@ -46,6 +46,6 @@ class CourseServiceImp(
         val pageable =PageRequest.of(page,size)
         val courses =courseRepository.findByTitleOrDescription(search,pageable)
         val response =courses.map { it.toCourseDto() }
-        return ApiResponse.Success("",response)
+        return ApiResponse.Success("fetch courses",response)
     }
 }
