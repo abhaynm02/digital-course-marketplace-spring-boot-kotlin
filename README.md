@@ -59,8 +59,7 @@ spring:
 # JWT Configuration
 jwt.secret=your-secret-key
 jwt.expiration=86400000
-
-
+```
 
 ## Running the Application
 
@@ -68,7 +67,7 @@ jwt.expiration=86400000
 
 1. Clone the repository:
 ```bash
-git clone <[repository-url](https://github.com/abhaynm02/digital-course-marketplace-spring-boot-kotlin.git)>
+git clone https://github.com/abhaynm02/digital-course-marketplace-spring-boot-kotlin.git
 ```
 
 2. Navigate to the project directory:
